@@ -1,0 +1,307 @@
+*{
+  padding:0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Declarando nossa paleta de cores */
+:root {
+  --background: #020410;
+  --blue: #2C344B;
+  --white: #ffffff;
+  --grey: #dbdbdb;
+  --green: #1ED760;
+}
+
+
+body{
+  background-color: var(--background);
+  width: 100%;
+  color:var(--white);
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 12.5%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+
+}
+.navbar a{
+  position: relative;
+   font-size: 16px;
+   color: #e4e4e4;
+   text-decoration: none;
+   font-weight: 500;
+   margin-right: 30px;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #e4e4e4;
+  border-radius: 5px;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: .5s;
+}
+.navbar a:hover::after {
+   transform: translateY(0);
+   opacity: 1;
+}
+
+
+.logotipo {
+  width: 250px;
+  height: 45px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+ 
+
+}
+
+
+
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.left{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.left .logo-area{
+  max-width: 720px;
+}
+
+.left div{
+  max-width: 720px;
+}
+
+.logo{
+  width: 150px;
+  margin-top: 54px;
+  margin-bottom: 28px;
+}
+
+.title{
+  font-size: 38px;
+  margin: 28px 0;
+}
+
+.description{
+  line-height: 150%;
+  color: var(--grey);
+  margin-bottom: 58px;
+}
+
+h2{
+  margin-bottom: 14px;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.form-area{
+  animation: fadeInDown 2s;
+}
+
+.left form{
+  background-color: var(--blue);
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  height: 46px;
+  border-radius: 80px;
+  margin-bottom: 38px;
+}
+
+@keyframes fadeInDown {
+  0% {
+     opacity: 0;
+  }
+  15% {
+     opacity: 0;
+     transform: translateY(-30px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateY(0);
+  }
+} 
+
+
+
+.button{
+  border-radius: 80px;
+  flex:1;
+  margin: 4px;
+  border:0;
+  background-color: var(--green);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.4s;
+}
+
+
+.button:hover{
+  background-color: #0cf032;
+}
+
+/* Animaçao de entrada da esquerda para direita */
+.area{
+  
+  animation: fadeInRight forwards 2s;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInRight {
+  0% {
+     opacity: 0;
+     animation-delay: 0.5s;
+  }
+  15% {
+     opacity: 0;
+     transform: translateX(-30px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0);
+  }
+}
+
+.area a{
+  text-decoration: none;
+}
+
+.area img{
+/*  filter:grayscale(100%); /* Deixando nossas imagens sem cores */
+  width: 90px;
+  height: 50px;
+  object-fit: contain;
+  margin-right: 14px;
+  transition: filter 0.4s;
+  transition: transform 0.2s;
+}
+
+.area img:hover{
+  filter:grayscale(0); /* Voltando a cor real ao passar o mouse em cima. */
+  transform: scale(1.1) /* Aumentando a imagem ao passar o mouse em cima. */
+}
+
+.right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex:1;
+  height: 100vh;
+}
+.button a {
+  color: var(--grey);
+  text-decoration: none;
+}
+
+/* Area para inserir nossa imagem de fundo */
+.background{
+  width: 100%;
+}
+
+.background::before{ 
+  position: absolute;
+  background: url('./imgs/logotipo-unscreen.gif');
+  background-position: right;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  z-index: -1; 
+  opacity: 0.9;
+  width: 100%;
+  height: 100%; 
+  content: '';
+}
+
+/* Ajustando telas em  tamanhos até 850px */
+@media (max-width: 850px) {
+  .container{
+    padding: 0 14px;
+  }
+
+  .left{
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .right{
+    display: none;
+  }
+
+  .background::before{ 
+    background-position: top;
+    background-size: 100%;
+    filter: blur(2px);
+    opacity: 0.4;
+    overflow: hidden;
+  }
+}
+
+/* Ajustando telas em  tamanhos até 510px */
+@media (max-width:510px) {
+
+  h2{
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .left form{
+    background-color: transparent;
+    flex-direction: column;
+    height: 88px;
+    gap: 2px;
+  }  
+
+  .input{
+    background-color: var(--blue);
+    flex:1;
+  }
+
+  .button{
+    flex:1;
+  }
+
+  .area{
+    margin-bottom: 42px;
+  }
+
+  .area img{
+    width: 70px;
+    height: 40px;
+  }
+  
+
+}
